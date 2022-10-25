@@ -8,31 +8,29 @@
 
 let holes = document.querySelectorAll('.main-container div');
 let scoreJs = document.querySelector(".score-container p")
-// console.log(holes)
 let points =1;
 function displayMole(){   
-    // console.log(holes[holeNumber])
     let holeNumber = Math.floor(Math.random()*18)
-    holes[holeNumber].style.backgroundColor ="red";  
+    holes[holeNumber].style.backgroundColor ="red";
+    setTimeout(hideMole,2000)  
     }
+
+function hideMole(){   
+    // console.log(holes[holeNumber])
+    holes.forEach(element =>{
+    element.style.backgroundColor ="white";
+    })
+    
+    }
+
 document.body.addEventListener('click', (event) => {
-    // console.log(event.target);
+
     if(event.target.style.backgroundColor=="red"){
-       scoreJs.innerHTML = `Score : ${points} `;
-       event.target.style.backgroundColor ="white";
-       points = points + 1;
-
-      
+        scoreJs.innerHTML = `Score : ${points} `;
+        event.target.style.backgroundColor ="white";
+        points = points + 1;
     }})
-    function hideMole(){   
-        // console.log(holes[holeNumber])
-        holes.forEach(element =>{
-            element.style.backgroundColor ="white";
+setInterval(displayMole,3000)
 
-        })
-      
-        }
-setInterval(displayMole,2000)
-setInterval(hideMole,3000)
 
 
