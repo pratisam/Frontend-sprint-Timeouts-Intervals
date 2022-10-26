@@ -58,7 +58,7 @@ let monthLetters;
 dateJs.innerHTML = `${todayDate.getDate()} </br>${monthLetters}`;
 yearJs.innerHTML = todayDate.getFullYear();
 function timeFunction(){
-    if(changeTime){
+    if(!changeTime){
         console.log("got false")
         hourJs.innerHTML = `${new Date().getHours('en-US', {hour12: false})}:`
         minJs.innerHTML = `${new Date().getMinutes('en-US', {hour12: false})}:`
