@@ -10,7 +10,7 @@ let buttonJs = document.querySelector('button')
 buttonJs.addEventListener('click', clickFunction)
 let ulJs = document.createElement('ul')
 
-function clickFunction(e){
+function clickFunction(){
 
     fetch('beCode.json')
     .then(response => response.json())

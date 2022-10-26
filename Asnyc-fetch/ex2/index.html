@@ -4,3 +4,31 @@ Extra steps
 Also add a <select> field with a few countries in it, to narrow down the search to a specific country. You'll have to look in agify documentation to know more about that.
 Store the previous results in a localStorage so you don't have to fetch them again!
 Using the promise syntax? Try to use async/await instead! -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Input the Name</h1>
+    <div class="input-container">
+        <input type="text" name="text" id="texId">
+        <button>Submit</button>
+        <select name="country" id="country">
+            <option value="US">US</option>
+            <option value="GB">UK</option>
+            <option value="FR">France</option>
+            <option value="BE">Belgium</option>
+            <option value="ES">Spain</option>
+        </select>
+    </div>
+    <div class="output-container">
+
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
