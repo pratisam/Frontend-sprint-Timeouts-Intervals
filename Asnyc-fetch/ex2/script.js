@@ -4,6 +4,24 @@ let outputJs =document.querySelector('.output-container')
 let buttonJs = document.querySelector('button')
 buttonJs.addEventListener('click',()=>{
     let inputValue = document.querySelector('input').value;
+// Using the promise syntax? 
+    let promiseSyntax = new Promise(function(myResolve, myReject){
+        let localValue = (localStorage.getItem(`${inputValue}`));
+        if(localValue!=null){
+            myResolve(`${JSON.parse(localValue)},${localValue}`)
+        }
+        else{
+            myReject('Error')
+        }
+    })
+    promiseSyntax.then(
+        function(value){
+            console.log(value);
+        },
+        function(error){
+            console.log(error);
+        }
+    )
 // Also add a <select> field with a few countries in it, to narrow down the search to a specific country. You'll have to look in agify documentation to know more about that.
     let countryValue = document.querySelector('select').value
         fetch('https://api.agify.io/?name='+inputValue+'&country_id='+countryValue)
@@ -11,8 +29,17 @@ buttonJs.addEventListener('click',()=>{
         .then(json =>{
             let localSt = json;
 // Store the previous results in a localStorage so you don't have to fetch them again!
-            window.localStorage.setItem(`result`, JSON.stringify(localSt))   
-            console.log(window.localStorage.getItem('result'))
+//JSON.stringify(localSt) to convert object into string
+            localStorage.setItem(`${inputValue}`, JSON.stringify(localSt)) ;
+// how to fetch the stored Value
+
+            // let localValue = (localStorage.getItem('ella'))
+//to convert back into object
+            // console.log(JSON.parse(localValue))
+//to remove one item
+            // localStorage.removeItem('fullName');
+//to clear everything
+            // localStorage.clear()
             let divJs = document.createElement('div');
             divJs.innerHTML = `${inputValue }, Average age of ${json.age} and the count as ${json.count} in the Country${countryValue} `;
             outputJs.appendChild(divJs)
@@ -23,6 +50,22 @@ buttonJs.addEventListener('click',()=>{
 })
 const fetchName = input => fetch('https://api.agify.io/?name='+input)
 
-// Extra steps
 
-// Using the promise syntax? Try to use async/await instead!    
+let promiseSyntax = new Promise(function(myResolve, myReject){
+    let localValue = (localStorage.getItem('emma'));
+    if(localValue!=null){
+        myResolve(`${JSON.parse(localValue)},${localValue}`)
+    }
+    else{
+        myReject('Error')
+    }
+})
+promiseSyntax.then(
+    function(value){
+        console.log(value);
+    },
+    function(error){
+        console.log(error);
+    }
+)
+// Try to use async/await instead!    

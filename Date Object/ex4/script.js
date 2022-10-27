@@ -80,7 +80,7 @@ function timeFunction(){
 }
 
 
-function timeOutFunction(){
+const timeOutFunction= ()=>{
  clearTimeout(timeFn)
 }
 let timeFn = setInterval(timeFunction,500)
