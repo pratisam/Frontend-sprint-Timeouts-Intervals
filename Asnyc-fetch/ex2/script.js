@@ -32,7 +32,6 @@ buttonJs.addEventListener('click',()=>{
 //JSON.stringify(localSt) to convert object into string
             localStorage.setItem(`${inputValue}`, JSON.stringify(localSt)) ;
 // how to fetch the stored Value
-
             // let localValue = (localStorage.getItem('ella'))
 //to convert back into object
             // console.log(JSON.parse(localValue))
@@ -49,23 +48,19 @@ buttonJs.addEventListener('click',()=>{
         })
 })
 const fetchName = input => fetch('https://api.agify.io/?name='+input)
-
-
-let promiseSyntax = new Promise(function(myResolve, myReject){
-    let localValue = (localStorage.getItem('emma'));
-    if(localValue!=null){
-        myResolve(`${JSON.parse(localValue)},${localValue}`)
-    }
-    else{
-        myReject('Error')
-    }
-})
-promiseSyntax.then(
-    function(value){
-        console.log(value);
-    },
-    function(error){
-        console.log(error);
-    }
-)
 // Try to use async/await instead!    
+// instead of promiseSyntax.then we use await promiseSyntax
+async function myFunction(){
+    let promiseSyntax = new Promise(function(myResolve, myReject){
+        let localValue = (localStorage.getItem('emma'));
+        if(localValue!=null){
+            myResolve(`${JSON.parse(localValue)},${localValue}`)
+        }
+        else{
+            myReject('Error')
+        }
+    })
+    console.log(await promiseSyntax)
+}
+myFunction();
+
